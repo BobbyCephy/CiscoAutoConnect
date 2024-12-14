@@ -1,7 +1,7 @@
 # CiscoAutoConnect
 Create a file "credentials.txt" under "C:\Users\<username>" with the user name in the first and password in second line.
 
-Execute "hrz.bat" or "2fa.bat" to connect.
+Execute "connect.bat" to connect.
 
 Execute "disconnect.bat" to disconnect.
 

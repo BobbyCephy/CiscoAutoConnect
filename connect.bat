@@ -2,7 +2,6 @@
 taskkill /f /im csc_ui.exe
 
 set server=hrz24.hs-ansbach.de
-set group=0
 set credentialsFile=%userprofile%\credentials.txt
 set credentialsFileTemp=%userprofile%\credentialsTemp.txt
 
@@ -14,7 +13,6 @@ set /p passwordSecond=Enter second password:
 
 (
 	echo connect %server%
-	echo %group%
 	echo %name%
 	echo %password%
 	echo %passwordSecond%
