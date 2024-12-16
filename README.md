@@ -5,4 +5,4 @@ Execute "connect.bat" to connect.
 
 Execute "disconnect.bat" to disconnect.
 
-Optionally create desktop shortcuts to ".bat" files.
+Optionally create desktop shortcuts to connect and disconnect shortcuts to bypass forbidden opening of .bat files.
