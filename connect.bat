@@ -1,8 +1,9 @@
 @echo off
 
 set server=hrz24.hs-ansbach.de
-set credentialsFile=%userprofile%\credentials.txt
-set credentialsFileTemp=%userprofile%\credentialsTemp.txt
+set credentialsPath=%userprofile%\Documents
+set credentialsFile=%credentialsPath%\credentials.txt
+set credentialsFileTemp=%credentialsPath%\credentialsTemp.txt
 set ui=csc_ui.exe
 set cli="C:\Program Files (x86)\Cisco\Cisco Secure Client\vpncli.exe"
 
