@@ -1,29 +1,33 @@
 @echo off
 
-set server=hrz24.hs-ansbach.de
-set credentialsPath=%userprofile%\Documents
-set credentialsFile=%credentialsPath%\credentials.txt
-set credentialsFileTemp=%credentialsPath%\credentialsTemp.txt
-set ui=csc_ui.exe
-set cli="C:\Program Files (x86)\Cisco\Cisco Secure Client\vpncli.exe"
+set "server=vpn-server.uni-bayreuth.de"
+set "credentialsPath=%userprofile%\Documents"
+set "credentialsFile=%credentialsPath%\credentials.txt"
+set "credentialsFileTemp=%credentialsPath%\credentialsTemp.txt"
+set "ui=csc_ui.exe"
+set "cli=C:\Program Files (x86)\Cisco\Cisco Secure Client\vpncli.exe"
 
-tasklist | find /i "%ui%" > nul && taskkill /f /im %ui% > nul
+tasklist | find /i "%ui%" > nul && taskkill /f /im "%ui%" > nul
 
-for /f "tokens=*" %%A in ('more +0 %credentialsFile%') do (
-	if not defined name (set name=%%A) else (set password=%%A)
+for /f "usebackq delims=" %%A in ("%credentialsFile%") do (
+    if not defined name (
+        set "name=%%A"
+    ) else (
+        set "password=%%A"
+    )
 )
 
-set /p passwordSecond=Enter second password:
+del "%credentialsFileTemp%" 2>nul
 
 (
-	echo connect %server%
-	echo %name%
-	echo %password%
-	echo %passwordSecond%
-) > %credentialsFileTemp%
+    echo connect %server%
+    echo.
+    echo %name%
+    echo %password%
+) > "%credentialsFileTemp%"
 
-%cli% -s < %credentialsFileTemp%
+"%cli%" -s < "%credentialsFileTemp%"
 
 if %ERRORLEVEL% neq 0 (pause)
 
-del %credentialsFileTemp%
+del "%credentialsFileTemp%"
