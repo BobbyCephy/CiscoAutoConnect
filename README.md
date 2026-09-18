@@ -1,4 +1,18 @@
 # CiscoAutoConnect
-Create a file "credentials.txt" under "C:\Users\%username%\Documents" with the username in the first and password in the second line.
-Execute "connect.bat" to connect.
-Execute "disconnect.bat" to disconnect.
+Windows scripts for automatic connection to the University of Bayreuth network via VPN with Cisco Secure Client
+
+Open an Administrator Command Prompt to save your credentials:
+```bat
+setx BT_USERNAME /M "your-username"
+setx BT_PASSWORD /M "your-password"
+```
+
+Connect:
+```bat
+connect.bat
+```
+
+Disconnect:
+```bat
+disconnect.bat
+```
